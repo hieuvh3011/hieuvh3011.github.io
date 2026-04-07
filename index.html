@@ -719,11 +719,22 @@
   </section>
 
   <section id="projects">
-    <div class="projects-grid stagger-grid" id="projects-grid">
-      <div class="reveal" style="grid-column: 1 / -1;">
+    <div style="max-width: 1100px; margin: 0 auto;">
+      <div class="reveal">
         <div class="section-label">Projects</div>
         <h2 class="section-title">Selected work</h2>
       </div>
+      <div class="reveal" style="margin-bottom: 2rem;">
+        <div class="skills-categories" id="project-filters">
+          <button class="skill-cat-btn active" data-tech="all">All</button>
+          <button class="skill-cat-btn" data-tech="ReactJS">ReactJS</button>
+          <button class="skill-cat-btn" data-tech="React Native">React Native</button>
+          <button class="skill-cat-btn" data-tech="Flutter">Flutter</button>
+          <button class="skill-cat-btn" data-tech="Node.js">NodeJS</button>
+          <button class="skill-cat-btn" data-tech="Spring Boot">Spring Boot</button>
+        </div>
+      </div>
+      <div class="projects-grid stagger-grid" id="projects-grid"></div>
     </div>
   </section>
 
@@ -771,6 +782,7 @@
     renderFooter();
     renderContactCards();
     renderProjectCards();
+    initProjectFilters();
     initRevealAnimations();
     initStaggerAnimations();
     initTiltCards();

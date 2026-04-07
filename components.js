@@ -144,11 +144,16 @@ function initRevealAnimations() {
 
 /**
  * Render project cards into <div id="projects-grid"></div>
+ * @param {string} tech - filter by tech name, or 'all'
  */
-function renderProjectCards() {
+function renderProjectCards(tech) {
   const grid = document.getElementById('projects-grid');
   if (!grid || typeof PROJECTS === 'undefined') return;
-  PROJECTS.forEach(p => {
+  const filtered = !tech || tech === 'all'
+    ? PROJECTS
+    : PROJECTS.filter(p => p.techstack.some(t => t.toLowerCase().includes(tech.toLowerCase())));
+  grid.innerHTML = '';
+  filtered.forEach(p => {
     const card = document.createElement('a');
     card.href = `project-detail.html?id=${p.id}`;
     card.className = 'project-card tilt-card';
@@ -165,6 +170,21 @@ function renderProjectCards() {
       <div class="project-tags">${p.techstack.map(t => `<span class="tag">${t}</span>`).join('')}</div>
     `;
     grid.appendChild(card);
+  });
+  initTiltCards();
+}
+
+/**
+ * Init project filter buttons
+ */
+function initProjectFilters() {
+  const btns = document.querySelectorAll('#project-filters .skill-cat-btn');
+  btns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      btns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      renderProjectCards(btn.dataset.tech);
+    });
   });
 }
 

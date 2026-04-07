@@ -70,16 +70,16 @@ const PROJECTS = [
     challenges: [
       'Designing a scalable super-app architecture that allows multiple independent mini-apps (appointment, admission, payment, etc.) to coexist within a single shell without tight coupling',
       'Integrating Adyen payment gateway under strict PCI-DSS compliance requirements while supporting multiple payment methods across Singapore regulations',
-      'Managing complex state synchronization between the Flutter mobile app and the Next.js hospital management system when both platforms operate on shared patient data',
+      'Managing complex state synchronization between the React Native mobile app and the Next.js hospital management system when both platforms operate on shared patient data',
       'Establishing consistent frontend engineering standards, CI/CD pipelines, and Git workflows across a 35-person team with varying experience levels to ensure code quality at scale'
     ],
     solutions: [
       'Architected a micro-frontend-inspired super-app structure where each mini-app is independently deployable with its own lifecycle, communicating through a shared event bus and dependency injection — enabling parallel team development without merge conflicts',
       'Implemented a tokenized payment flow with Adyen Drop-in SDK, isolating sensitive card data from the app layer and using webhook-based confirmation to guarantee transaction integrity under PCI-DSS',
-      'Built a centralized data layer with repository pattern and real-time sync via WebSocket, ensuring both Flutter and Next.js clients reflect the same patient state with optimistic UI updates and server reconciliation',
+      'Built a centralized data layer with repository pattern and real-time sync via WebSocket, ensuring both React Native and Next.js clients reflect the same patient state with optimistic UI updates and server reconciliation',
       'Established a comprehensive engineering playbook including branching strategy, PR review checklist, linting rules, and automated CI checks — reducing production bugs by enforcing quality gates before merge'
     ],
-    techstack: ['Flutter', 'Next.js', 'Dart', 'TypeScript', 'Adyen', 'Firebase', 'AWS'],
+    techstack: ['React Native', 'Next.js', 'TypeScript', 'Adyen', 'Firebase', 'AWS'],
     links: [
       { label: 'Android App', url: 'https://play.google.com/store/apps/details?id=com.thomsonmedical.thomsontouch' },
       { label: 'iOS App', url: 'https://apps.apple.com/vn/app/thomson-touch/id6736971996' }
@@ -106,18 +106,18 @@ const PROJECTS = [
       problem: 'Vietcombank\'s branch operations relied heavily on paper forms for account opening, card issuance, and compliance checks (FATCA, AML). This created long customer wait times, high error rates from manual data entry, and audit difficulties. The bank needed a tablet-based solution for tellers to digitize these workflows while integrating with hardware devices like citizen ID card readers.'
     },
     challenges: [
-      'Integrating physical hardware (citizen ID card reader via NFC/contact chip) with a Flutter mobile application — requiring platform channel modules for low-level device communication on both Android and iOS',
+      'Integrating physical hardware (citizen ID card reader via NFC/contact chip) with a React Native mobile application — requiring native modules for low-level device communication on both Android and iOS',
       'Implementing complex multi-step financial workflows (account creation, FATCA/AML compliance, card issuance) with strict validation rules that vary by product type, customer segment, and regulatory requirements',
       'Ensuring offline capability for tablet apps used in bank branches with unreliable network — tellers must be able to continue serving customers even during network outages',
       'Coordinating parallel development across a 48-person team building interconnected banking workflows, where changes in one flow often had cascading effects on others'
     ],
     solutions: [
-      'Developed custom Flutter platform channels (Kotlin/Swift) to interface with the ID card reader SDK, abstracting hardware communication behind a unified Dart API that handles connection lifecycle, data parsing, and error recovery',
+      'Developed custom React Native native modules (Kotlin/Swift) to interface with the ID card reader SDK, abstracting hardware communication behind a unified JavaScript API that handles connection lifecycle, data parsing, and error recovery',
       'Built a dynamic form engine driven by JSON schema configuration, where each banking product defines its own validation rules, field dependencies, and submission flow — enabling rapid product onboarding without code changes',
       'Implemented an offline-first architecture with local SQLite storage, request queuing, and automatic sync with conflict detection when connectivity resumes — ensuring zero data loss during network interruptions',
       'Established a modular architecture separating shared components, workflow-specific modules, and integration layers, with clear ownership boundaries per team — reducing cross-team merge conflicts significantly'
     ],
-    techstack: ['Flutter', 'Spring Boot', 'Dart', 'Java', 'Kotlin', 'Swift'],
+    techstack: ['React Native', 'Spring Boot', 'JavaScript', 'Java', 'Kotlin', 'Swift'],
     links: [],
     result: 'Successfully deployed as an internal application to Vietcombank branches nationwide. The app digitized paper-based banking processes, significantly reducing customer wait times and manual data entry errors. Tellers could complete account opening and compliance workflows entirely on tablet, including reading citizen ID cards electronically.',
     screenshots: []
