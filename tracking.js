@@ -51,7 +51,7 @@
 
   firebase.initializeApp(FIREBASE_CONFIG);
   firebase.appCheck().activate(
-    new firebase.appCheck.ReCaptchaEnterpriseProvider('6Ldld6ssAAAAAG9CQ5rxIn9w14snm17PZsZOpOFk'),
+    new firebase.appCheck.ReCaptchaEnterpriseProvider('6LcmWKssAAAAAIw-jIaq5316BXzf9pMAiEbGns16'),
     true
   );
   const db = firebase.firestore();
