@@ -3,6 +3,43 @@
  * Tracks: IP, geo, device, pages viewed, projects viewed, scroll depth, session duration
  */
 (function () {
+  // ── Privacy consent ──
+  var consent = localStorage.getItem('_tracking_consent');
+
+  function showBanner() {
+    var banner = document.createElement('div');
+    banner.className = 'privacy-banner';
+    banner.innerHTML =
+      '<p>This site collects anonymous visit data (device, location, pages viewed) to improve the experience.</p>' +
+      '<div class="privacy-banner-actions">' +
+      '<button class="privacy-btn-accept" id="privacy-accept">OK</button>' +
+      '<button class="privacy-btn-decline" id="privacy-decline">Decline</button>' +
+      '</div>';
+    document.body.appendChild(banner);
+
+    document.getElementById('privacy-accept').addEventListener('click', function () {
+      localStorage.setItem('_tracking_consent', 'yes');
+      banner.remove();
+      initTracking();
+    });
+    document.getElementById('privacy-decline').addEventListener('click', function () {
+      localStorage.setItem('_tracking_consent', 'no');
+      banner.remove();
+    });
+  }
+
+  if (consent === 'no') return;
+  if (consent === 'yes') { initTracking(); return; }
+  // No consent yet — show banner
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', showBanner);
+  } else {
+    showBanner();
+  }
+  return;
+
+  function initTracking() {
+
   const FIREBASE_CONFIG = {
     apiKey: "AIzaSyBeNiakcD-kmgu332gP1klahbk_P05irbU",
     authDomain: "portfolio-ba9fd.firebaseapp.com",
@@ -167,4 +204,6 @@
     if (document.visibilityState === 'hidden') saveExitData();
   });
   window.addEventListener('beforeunload', saveExitData);
+
+  } // end initTracking
 })();

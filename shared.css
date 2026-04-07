@@ -233,6 +233,82 @@ nav.dark-nav .theme-toggle:hover {
   background: rgba(167, 139, 250, 0.1);
 }
 
+/* ── Privacy Banner ── */
+.privacy-banner {
+  position: fixed;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  background: var(--bg-dark);
+  color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  max-width: 600px;
+  width: calc(100% - 2rem);
+  font-size: 0.82rem;
+  line-height: 1.5;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  animation: fadeUp 0.4s ease;
+}
+
+[data-theme="light"] .privacy-banner {
+  background: var(--bg-card);
+  color: var(--text);
+  border-color: var(--border);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.privacy-banner p {
+  margin: 0;
+  flex: 1;
+}
+
+.privacy-banner-actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+.privacy-banner-actions button {
+  padding: 0.4rem 1rem;
+  border-radius: 6px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: opacity 0.2s;
+}
+
+.privacy-banner-actions button:hover { opacity: 0.85; }
+
+.privacy-btn-accept {
+  background: var(--accent);
+  color: #fff;
+}
+
+.privacy-btn-decline {
+  background: transparent;
+  color: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+}
+
+[data-theme="light"] .privacy-btn-decline {
+  color: var(--text-muted);
+  border-color: var(--border) !important;
+}
+
+@media (max-width: 500px) {
+  .privacy-banner {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
 /* ── Footer ── */
 footer {
   padding: 2rem 3rem;
