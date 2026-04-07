@@ -50,6 +50,7 @@
   };
 
   firebase.initializeApp(FIREBASE_CONFIG);
+  firebase.appCheck().activate('6LcZAqssAAAAAMmugdjNFVRrn49f1onPCGEfZpXh', true);
   const db = firebase.firestore();
 
   // ── Session ID (persists across page navigations in same tab) ──
