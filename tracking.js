@@ -50,7 +50,7 @@
   };
 
   firebase.initializeApp(FIREBASE_CONFIG);
-  firebase.appCheck().activate('6LcZAqssAAAAAMmugdjNFVRrn49f1onPCGEfZpXh', true);
+  firebase.appCheck().activate('6LebWassAAAAAPZ-AqR-Z7p7ebTKdZBbEwLLqhFw', true);
   const db = firebase.firestore();
 
   // ── Session ID (persists across page navigations in same tab) ──
@@ -110,10 +110,9 @@
   // ── Get visitor IP + geo ──
   var GEO_APIS = [
     {
-      url: 'https://ipwho.is/',
+      url: 'https://ipinfo.io/json?token=',
       map: function (d) {
-        if (!d.success) throw new Error('failed');
-        return { ip: d.ip, city: d.city, region: d.region, country: d.country, countryCode: d.country_code, timezone: d.timezone && d.timezone.id || '', org: d.connection && d.connection.org || '' };
+        return { ip: d.ip, city: d.city || '', region: d.region || '', country: d.country || '', countryCode: d.country || '', timezone: d.timezone || '', org: d.org || '' };
       }
     },
     {
