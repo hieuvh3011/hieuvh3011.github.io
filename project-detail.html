@@ -9,6 +9,7 @@
     rel="stylesheet">
   <link rel="stylesheet" href="shared.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL@20,400,1" />
+  <script>document.documentElement.setAttribute('data-theme', localStorage.getItem('theme') || 'light');</script>
   <style>
     /* ── Detail Nav ── */
     .detail-nav {
@@ -22,6 +23,10 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+    }
+
+    [data-theme="dark"] .detail-nav {
+      background: rgba(11, 13, 16, 0.9);
     }
 
     .detail-back {
@@ -126,7 +131,7 @@
     }
 
     .screenshot-main {
-      background: linear-gradient(145deg, #E8E8E4, #D4D4CC);
+      background: linear-gradient(145deg, var(--bg-alt), var(--border));
       border-radius: 16px;
       border: 1px solid var(--border);
       display: flex;
@@ -159,7 +164,7 @@
     .screenshot-thumb {
       border-radius: 8px;
       border: 2px solid var(--border);
-      background: linear-gradient(145deg, #E8E8E4, #D4D4CC);
+      background: linear-gradient(145deg, var(--bg-alt), var(--border));
       overflow: hidden;
       cursor: pointer;
       flex-shrink: 0;
@@ -335,6 +340,11 @@
       margin-bottom: 2rem;
     }
 
+    /* ── Dark theme detail overrides ── */
+    [data-theme="dark"] .detail-result {
+      background: linear-gradient(135deg, rgba(59, 130, 246, 0.06), rgba(34, 197, 94, 0.06));
+    }
+
     /* ── Responsive ── */
     @media (max-width: 768px) {
       .detail-nav { padding: 1rem 1.5rem; }
@@ -350,7 +360,13 @@
 
   <nav class="detail-nav">
     <a href="index.html#projects" class="detail-back"><span class="material-symbols-rounded" style="font-size:18px">arrow_back</span> Back to Projects</a>
-    <span class="detail-nav-title" id="nav-title"></span>
+    <div style="display:flex;align-items:center;gap:1.5rem;">
+      <span class="detail-nav-title" id="nav-title"></span>
+      <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+        <span class="material-symbols-rounded icon-sun" style="font-size:20px">light_mode</span>
+        <span class="material-symbols-rounded icon-moon" style="font-size:20px">dark_mode</span>
+      </button>
+    </div>
   </nav>
 
   <main class="detail-body" id="detail-body"></main>

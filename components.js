@@ -12,6 +12,24 @@ const SITE = {
 };
 
 /**
+ * Initialize dark/light theme from localStorage, default to light
+ */
+function initTheme() {
+  const saved = localStorage.getItem('theme') || 'light';
+  document.documentElement.setAttribute('data-theme', saved);
+}
+
+function toggleTheme() {
+  const current = document.documentElement.getAttribute('data-theme') || 'light';
+  const next = current === 'dark' ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', next);
+  localStorage.setItem('theme', next);
+}
+
+// Run immediately so there's no flash
+initTheme();
+
+/**
  * Render the shared footer into <footer id="site-footer"></footer>
  */
 function renderFooter() {
