@@ -820,7 +820,7 @@
     ];
 
     const grid = document.getElementById('skills-icon-grid');
-    const catBtns = document.querySelectorAll('.skill-cat-btn');
+    const catBtns = document.querySelectorAll('.skills-categories:not(#project-filters) .skill-cat-btn');
 
     function renderSkills(cat) {
       const filtered = cat === 'all' ? SKILLS : SKILLS.filter(s => s.cat === cat);
