@@ -50,15 +50,20 @@
   };
 
   firebase.initializeApp(FIREBASE_CONFIG);
+  firebase.appCheck().activate(
+    new firebase.appCheck.ReCaptchaEnterpriseProvider('6LcZAqssAAAAAMmugdjNFVRrn49f1onPCGEfZpXh'),
+    true
+  );
   const db = firebase.firestore();
 
   // ── Session ID (persists across page navigations in same tab) ──
   let sessionId = sessionStorage.getItem('_sid');
   const isNewSession = !sessionId;
   if (!sessionId) {
-    var arr = new Uint8Array(16);
+    var arr = new Uint8Array(8);
     crypto.getRandomValues(arr);
-    sessionId = Array.from(arr, function (b) { return b.toString(16).padStart(2, '0'); }).join('');
+    var rand = Array.from(arr, function (b) { return b.toString(16).padStart(2, '0'); }).join('');
+    sessionId = new Date().toISOString().replace(/[-:T]/g, '').slice(0, 14) + '_' + rand;
     sessionStorage.setItem('_sid', sessionId);
   }
 
