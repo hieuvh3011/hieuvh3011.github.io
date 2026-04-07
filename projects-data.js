@@ -21,7 +21,7 @@ const PROJECTS = [
       'Established a structured collaboration workflow with shared Confluence documentation, cross-team PR reviews, and pre-release sign-off checklists — reducing release cycle friction while maintaining compliance',
       'Enforced strict coding standards through automated linting, type-safe domain models, and mandatory code review with a minimum two-approver policy — catching financial logic errors before they reach QA'
     ],
-    techstack: ['ReactJS', 'Java', 'Spring Boot', 'TypeScript'],
+    techstack: ['ReactJS', 'Java', 'Spring Boot', 'Node.js', 'TypeScript'],
     links: [],
     result: 'Successfully delivering frontend features for NAB\'s business lending platform, supporting complex enterprise loan workflows used by bank staff across Australia. The platform processes the full loan lifecycle under strict regulatory compliance, serving as a critical tool for NAB\'s business banking operations.',
     screenshots: []
@@ -79,7 +79,7 @@ const PROJECTS = [
       'Built a centralized data layer with repository pattern and real-time sync via WebSocket, ensuring both React Native and Next.js clients reflect the same patient state with optimistic UI updates and server reconciliation',
       'Established a comprehensive engineering playbook including branching strategy, PR review checklist, linting rules, and automated CI checks — reducing production bugs by enforcing quality gates before merge'
     ],
-    techstack: ['React Native', 'Next.js', 'TypeScript', 'Adyen', 'Firebase', 'AWS'],
+    techstack: ['React Native', 'Next.js', 'Node.js', 'TypeScript', 'Adyen', 'Firebase', 'AWS'],
     links: [
       { label: 'Android App', url: 'https://play.google.com/store/apps/details?id=com.thomsonmedical.thomsontouch' },
       { label: 'iOS App', url: 'https://apps.apple.com/vn/app/thomson-touch/id6736971996' }
