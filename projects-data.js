@@ -27,6 +27,37 @@ const PROJECTS = [
     screenshots: []
   },
   {
+    id: 'vault22',
+    platform: 'mobile',
+    name: 'Vault22 - Smart Finance App',
+    year: '2024 - 2025',
+    description: 'All-in-one smart finance application enabling users to track expenses, set financial goals, manage savings, and make investment decisions — built for the UAE market.',
+    context: {
+      client: 'Vault22 — a UAE-based fintech startup building a comprehensive personal finance management platform.',
+      problem: 'Users in the UAE lacked a unified tool to manage their finances holistically. Expense tracking, savings goals, and investment decisions were scattered across multiple apps and spreadsheets. Vault22 needed a single mobile and web platform that consolidates all personal finance activities into an intuitive experience, helping users take control of their financial health.'
+    },
+    challenges: [
+      'Building and maintaining feature parity across both mobile (Flutter) and web (ReactJS) platforms while ensuring consistent user experience and synchronized data across devices',
+      'Rapidly validating product ideas through proof-of-concept solutions before committing to full development — requiring fast iteration cycles without sacrificing code quality',
+      'Translating complex financial concepts (budgeting rules, investment projections, goal tracking) into intuitive UI flows that non-technical users can navigate confidently',
+      'Collaborating closely with Product Owners and Business Analysts to clarify evolving requirements in a fast-paced startup environment while delivering aligned solutions on tight sprint cycles'
+    ],
+    solutions: [
+      'Architected a shared component library and design system used across both Flutter mobile and ReactJS web apps — enabling consistent UI/UX while reducing duplicate development effort by 40%',
+      'Established a rapid POC workflow using feature branches and staged deployments, allowing stakeholders to interact with working prototypes within days — accelerating product validation and reducing wasted development effort',
+      'Designed progressive onboarding flows with contextual financial education, breaking complex concepts into step-by-step wizards with real-time calculations — improving user comprehension and engagement with financial tools',
+      'Adopted Agile/Scrum with short 2-week sprints, daily standups with PO/BA, and mid-sprint demos — ensuring continuous alignment between technical delivery and business priorities'
+    ],
+    techstack: ['Flutter', 'ReactJS', 'Dart', 'TypeScript', 'Firebase'],
+    links: [
+      { label: 'Android App', url: 'https://play.google.com/store/apps/details?id=com.vault22.next.uae&hl=vi' },
+      { label: 'iOS App', url: 'https://apps.apple.com/vn/app/vault22-uae/id6751945237?l=vi' },
+      { label: 'Website', url: 'https://vault22.com/' }
+    ],
+    result: 'Successfully launched on iOS, Android, and web. The platform provides UAE users with a comprehensive personal finance management tool, enabling expense tracking, savings goal setting, and investment decision-making in a single unified experience.',
+    screenshots: []
+  },
+  {
     id: 'thomson-touch',
     platform: 'mobile',
     name: 'Thomson Touch - Healthcare Super App',
@@ -179,6 +210,93 @@ const PROJECTS = [
       { label: 'iOS App', url: 'https://apps.apple.com/vn/app/probit-global-mua-btc-eth/id6444780877?l=vi' }
     ],
     result: 'Successfully launched on both iOS and Android app stores. The app provides a full-featured mobile trading experience including spot trading, futures trading, and wallet management for Probit Global\'s user base across 200+ countries.',
+    screenshots: []
+  },
+  {
+    id: 'travala',
+    platform: 'web',
+    name: 'Travala - Blockchain Travel Booking Platform',
+    year: '2021 - 2023',
+    description: 'Blockchain-enabled travel booking platform connecting travelers with global accommodations and supporting crypto-based payments — one of the leading Web3 travel platforms worldwide.',
+    context: {
+      client: 'Travala — a blockchain-based travel booking platform partnering with global accommodation providers and supporting cryptocurrency payments.',
+      problem: 'The travel industry lacked a credible bridge between traditional booking services and the growing crypto economy. Travala needed a full-featured travel platform — hotel search, flight booking, and payment processing — that seamlessly integrates Web3 payments alongside traditional methods, making blockchain-powered travel accessible to both crypto-native and mainstream users.'
+    },
+    challenges: [
+      'Designing and building the entire technical foundation from scratch — architecture, codebase structure, database schema, and engineering standards — for a platform that needed to scale to handle global travel inventory',
+      'Integrating Web3 payment flows (cryptocurrency wallets, token transactions, smart contract interactions) alongside traditional payment methods within a unified checkout experience',
+      'Building a performant hotel search and flight booking engine that aggregates data from multiple global accommodation and airline providers with varying API formats and response times',
+      'Mentoring an 18-person engineering team on blockchain architecture, Web3 concepts, and development best practices while simultaneously delivering platform features under tight deadlines'
+    ],
+    solutions: [
+      'Owned the full technical foundation — designed a modular monorepo architecture with clear separation between booking engine, payment processing, and Web3 integration layers, enabling parallel team development from day one',
+      'Built a payment abstraction layer that normalizes both fiat and crypto payment flows behind a unified interface — users select their preferred payment method (credit card, AVA token, BTC, ETH) and the system routes through the appropriate processing pipeline transparently',
+      'Implemented an aggregation service with adapter pattern for multiple travel inventory providers, using parallel API calls with circuit breakers and caching — delivering search results within 2 seconds despite querying multiple external sources',
+      'Established a structured mentorship program with weekly tech talks on Web3 fundamentals, pair programming sessions on smart contract integration, and architecture review meetings — upskilling the team while maintaining delivery velocity'
+    ],
+    techstack: ['Next.js', 'Spring Boot', 'Web3', 'TypeScript', 'Java', 'AWS'],
+    links: [
+      { label: 'Website', url: 'https://www.travala.com/' }
+    ],
+    result: 'Successfully launched as a leading blockchain-powered travel booking platform. Travala connects travelers with global accommodations and flights, supporting cryptocurrency payments alongside traditional methods — bridging the gap between Web3 and mainstream travel booking.',
+    screenshots: []
+  },
+  {
+    id: 'booking-care',
+    platform: 'web',
+    name: 'Booking Care - Healthcare Platform',
+    year: '2020 - 2023',
+    description: 'Healthcare booking platform enabling patients to find qualified doctors, schedule appointments, and provide post-visit feedback — while supporting doctors in managing treatment plans.',
+    context: {
+      client: 'Booking Care — a Vietnamese healthtech startup building a platform to connect patients with qualified healthcare providers.',
+      problem: 'Patients in Vietnam struggled to find reliable information about doctors and clinics, often relying on word-of-mouth or unverified online sources. The healthcare system lacked a centralized platform where patients could search for qualified doctors, book appointments, and provide feedback. Doctors also needed tools to manage patient relationships and treatment plans efficiently.'
+    },
+    challenges: [
+      'Leading cross-functional engineering teams across frontend (ReactJS), backend (Spring Boot), and mobile (React Native) to deliver a cohesive platform — requiring architectural decisions that work across all three surfaces',
+      'Building a reliable appointment scheduling system that handles complex availability rules, time zone considerations, cancellation policies, and real-time slot management across multiple clinics and doctors',
+      'Establishing CI/CD pipelines, coding standards, and quality gates for a multi-platform project with teams of varying experience levels — ensuring consistency across web, mobile, and backend codebases',
+      'Designing a review and feedback system that balances transparency for patients with fairness for healthcare providers — requiring careful UX design and moderation workflows'
+    ],
+    solutions: [
+      'Architected a shared API layer with Spring Boot serving both ReactJS web and React Native mobile clients, using a BFF (Backend for Frontend) pattern to optimize payloads per platform — reducing API round trips and keeping all clients in sync',
+      'Built a real-time slot management engine with optimistic locking and calendar-based availability rules, supporting overlapping appointment types, buffer times, and automatic conflict detection — ensuring no double-booking even under concurrent access',
+      'Established unified CI/CD pipelines across all platforms using GitHub Actions, with shared linting configs, automated testing thresholds, and staged deployment to preview environments — enabling safe, fast releases across web, mobile, and backend',
+      'Implemented a structured review system with verified appointment badges, moderation queue, and provider response capabilities — ensuring feedback is authentic while giving doctors the ability to address patient concerns'
+    ],
+    techstack: ['ReactJS', 'React Native', 'Spring Boot', 'MySQL', 'Java', 'Docker', 'AWS'],
+    links: [
+      { label: 'Website', url: 'https://bookingcare.vn/' }
+    ],
+    result: 'Successfully launched as bookingcare.vn, serving as a trusted healthcare booking platform in Vietnam. The platform connects patients with qualified doctors, enabling appointment scheduling, treatment plan management, and post-visit feedback across web and mobile.',
+    screenshots: []
+  },
+  {
+    id: 'maydocsach-ecommerce',
+    platform: 'web',
+    name: 'MayDocSach - eCommerce Platform',
+    year: '2020 - 2023',
+    description: 'eCommerce platform for selling Kindle e-readers and tablets, enabling users to browse products, manage carts, and complete purchases through multiple payment and shipping options.',
+    context: {
+      client: 'MayDocSach — a Vietnamese e-commerce business specializing in Kindle e-readers, tablets, and digital reading accessories.',
+      problem: 'The client needed a modern eCommerce platform to sell Kindle e-readers and tablets online in Vietnam. Existing marketplace listings lacked brand identity, customization, and control over the customer experience. A dedicated platform was needed to showcase products, manage inventory, process orders with multiple payment options, and provide a premium shopping experience aligned with the brand.'
+    },
+    challenges: [
+      'Selecting and validating the right technology stack for a full eCommerce platform — balancing development speed, scalability, and long-term maintainability for a small team',
+      'Implementing a complete order management flow including product catalog, cart management, checkout with multiple payment gateways, and shipping integration with Vietnamese logistics providers',
+      'Setting up production infrastructure on AWS with CI/CD pipelines, monitoring, and automated deployments — ensuring reliability for a customer-facing commerce platform',
+      'Ensuring frontend performance and SEO optimization for product pages — critical for an eCommerce site where search engine visibility directly impacts revenue'
+    ],
+    solutions: [
+      'Chose NestJS for backend (strong TypeScript support, modular architecture) and ReactJS for frontend — enabling rapid development with type safety across the full stack while maintaining clear separation of concerns',
+      'Built a modular order pipeline with state machine pattern for order lifecycle management, integrating Vietnamese payment gateways and logistics APIs through adapter interfaces — enabling easy addition of new payment/shipping providers',
+      'Deployed on AWS with Docker containers, automated CI/CD via GitHub Actions, and infrastructure monitoring with CloudWatch — achieving 99.9% uptime with automated rollback capabilities',
+      'Implemented server-side rendering for product pages with structured data markup, optimized image loading with lazy loading and WebP conversion, and meta tag management — improving search engine indexing and page load performance'
+    ],
+    techstack: ['NestJS', 'ReactJS', 'TypeScript', 'Docker', 'AWS'],
+    links: [
+      { label: 'Website', url: 'https://www.maydocsach.vn/' }
+    ],
+    result: 'Successfully launched as maydocsach.vn, providing a dedicated eCommerce platform for Kindle e-readers and tablets in Vietnam. The platform delivers a complete shopping experience with product browsing, cart management, secure checkout, and order tracking.',
     screenshots: []
   },
   {

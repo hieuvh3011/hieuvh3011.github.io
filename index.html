@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="shared.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL@20,400,1" />
-  <script>document.documentElement.setAttribute('data-theme', localStorage.getItem('theme') || 'light');</script>
+  <script>document.documentElement.setAttribute('data-theme', localStorage.getItem('theme') || 'dark');</script>
   <style>
     /* ── Nav ── */
     nav {
@@ -27,17 +27,17 @@
     }
 
     nav.dark-nav {
-      background: rgba(15, 17, 20, 0.85);
+      background: rgba(12, 14, 22, 0.85);
       border-bottom: 1px solid var(--border-dark);
     }
 
     nav.light-nav {
-      background: rgba(250, 250, 248, 0.85);
+      background: rgba(248, 248, 251, 0.85);
       border-bottom: 1px solid var(--border);
     }
 
     [data-theme="dark"] nav.light-nav {
-      background: rgba(11, 13, 16, 0.85);
+      background: rgba(12, 14, 22, 0.85);
       border-bottom: 1px solid rgba(255, 255, 255, 0.06);
     }
 
@@ -99,20 +99,29 @@
     /* ── Hero ── */
     .hero {
       min-height: 100vh;
-      background: linear-gradient(135deg, #0f1114 0%, #141820 30%, #0f1114 50%, #121418 70%, #0f1114 100%);
+      background: linear-gradient(135deg, #0C0E16 0%, #121530 30%, #0C0E16 50%, #101225 70%, #0C0E16 100%);
       display: flex;
       align-items: center;
       padding: 8rem 3rem 6rem;
       position: relative;
       overflow: hidden;
+      transition: background 0.4s;
+    }
+
+    [data-theme="light"] .hero {
+      background: linear-gradient(135deg, #F0EFFF 0%, #E8E6FF 30%, #F8F8FB 50%, #EDE9FF 70%, #F8F8FB 100%);
     }
 
     .hero-grid-bg {
       position: absolute;
       inset: 0;
-      background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+      background-image: linear-gradient(rgba(124, 115, 255, 0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(124, 115, 255, 0.04) 1px, transparent 1px);
       background-size: 60px 60px;
       mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, black 20%, transparent 100%);
+    }
+
+    [data-theme="light"] .hero-grid-bg {
+      background-image: linear-gradient(rgba(108, 99, 255, 0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(108, 99, 255, 0.06) 1px, transparent 1px);
     }
 
     .hero-glow {
@@ -123,10 +132,17 @@
       width: 900px;
       height: 600px;
       background:
-        radial-gradient(ellipse 60% 50% at 35% 50%, rgba(37, 99, 235, 0.12) 0%, transparent 70%),
-        radial-gradient(ellipse 50% 40% at 65% 40%, rgba(96, 165, 250, 0.08) 0%, transparent 70%),
-        radial-gradient(ellipse 40% 30% at 50% 70%, rgba(22, 163, 74, 0.05) 0%, transparent 70%);
+        radial-gradient(ellipse 60% 50% at 30% 50%, rgba(108, 99, 255, 0.15) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 40% at 70% 35%, rgba(168, 85, 247, 0.10) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 30% at 50% 70%, rgba(45, 212, 191, 0.06) 0%, transparent 70%);
       pointer-events: none;
+    }
+
+    [data-theme="light"] .hero-glow {
+      background:
+        radial-gradient(ellipse 60% 50% at 30% 50%, rgba(108, 99, 255, 0.12) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 40% at 70% 35%, rgba(168, 85, 247, 0.08) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 30% at 50% 70%, rgba(45, 212, 191, 0.06) 0%, transparent 70%);
     }
 
     .hero-content {
@@ -140,23 +156,33 @@
       align-items: center;
       gap: 0.6rem;
       padding: 0.5rem 1rem;
-      background: rgba(22, 163, 74, 0.1);
-      border: 1px solid rgba(22, 163, 74, 0.2);
+      background: rgba(45, 212, 191, 0.1);
+      border: 1px solid rgba(45, 212, 191, 0.2);
       border-radius: 100px;
       font-size: 0.8rem;
       font-weight: 500;
-      color: #4ADE80;
+      color: #5EEAD4;
       margin-bottom: 2rem;
       opacity: 0;
       animation: fadeUp 0.7s ease 0.2s forwards;
     }
 
+    [data-theme="light"] .hero-badge {
+      background: rgba(13, 148, 136, 0.08);
+      border-color: rgba(13, 148, 136, 0.2);
+      color: #0D9488;
+    }
+
     .badge-dot {
       width: 6px;
       height: 6px;
-      background: #4ADE80;
+      background: #5EEAD4;
       border-radius: 50%;
       animation: pulse 2s ease-in-out infinite;
+    }
+
+    [data-theme="light"] .badge-dot {
+      background: #0D9488;
     }
 
     .hero h1 {
@@ -170,8 +196,12 @@
       animation: fadeUp 0.7s ease 0.35s forwards;
     }
 
+    [data-theme="light"] .hero h1 {
+      color: var(--text);
+    }
+
     .hero h1 .hl {
-      background: linear-gradient(135deg, #60A5FA, #2563EB);
+      background: linear-gradient(135deg, #A78BFA, #6C63FF, #818CF8);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -186,6 +216,10 @@
       margin-bottom: 2.5rem;
       opacity: 0;
       animation: fadeUp 0.7s ease 0.5s forwards;
+    }
+
+    [data-theme="light"] .hero-desc {
+      color: var(--text-muted);
     }
 
     .hero-actions {
@@ -204,6 +238,17 @@
     .btn-ghost:hover {
       background: rgba(255, 255, 255, 0.1);
       color: #fff;
+    }
+
+    [data-theme="light"] .btn-ghost {
+      background: rgba(108, 99, 255, 0.06);
+      color: var(--accent);
+      border-color: var(--accent-border);
+    }
+
+    [data-theme="light"] .btn-ghost:hover {
+      background: rgba(108, 99, 255, 0.12);
+      color: var(--accent-hover);
     }
 
     /* ── Sections ── */
@@ -250,7 +295,7 @@
       font-weight: 800;
       line-height: 1;
       letter-spacing: -0.02em;
-      background: linear-gradient(135deg, var(--accent), #7C3AED);
+      background: linear-gradient(135deg, var(--accent), #A78BFA);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -440,14 +485,28 @@
     #contact {
       background: var(--bg-dark);
       color: #fff;
+      transition: background 0.4s, color 0.4s;
+    }
+
+    [data-theme="light"] #contact {
+      background: var(--bg-alt);
+      color: var(--text);
     }
 
     #contact .section-label {
-      color: #60A5FA;
+      color: #A78BFA;
+    }
+
+    [data-theme="light"] #contact .section-label {
+      color: var(--accent);
     }
 
     #contact .section-title {
       color: #fff;
+    }
+
+    [data-theme="light"] #contact .section-title {
+      color: var(--text);
     }
 
     .contact-desc {
@@ -456,6 +515,10 @@
       max-width: 500px;
       margin-bottom: 2.5rem;
       font-weight: 300;
+    }
+
+    [data-theme="light"] .contact-desc {
+      color: var(--text-muted);
     }
 
     .contact-cards {
@@ -477,21 +540,38 @@
       gap: 1rem;
     }
 
+    [data-theme="light"] .contact-card {
+      background: var(--bg-card);
+      border-color: var(--border);
+      box-shadow: var(--card-shadow);
+    }
+
     .contact-card:hover {
       background: rgba(255, 255, 255, 0.08);
-      border-color: rgba(37, 99, 235, 0.3);
+      border-color: rgba(108, 99, 255, 0.3);
       transform: translateY(-3px);
+    }
+
+    [data-theme="light"] .contact-card:hover {
+      background: var(--bg-card);
+      border-color: var(--accent-border);
+      box-shadow: var(--card-shadow-hover);
     }
 
     .contact-card-icon {
       width: 40px;
       height: 40px;
       border-radius: 10px;
-      background: rgba(255, 255, 255, 0.06);
+      background: rgba(108, 99, 255, 0.1);
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #60A5FA;
+      color: #A78BFA;
+    }
+
+    [data-theme="light"] .contact-card-icon {
+      background: var(--accent-soft);
+      color: var(--accent);
     }
 
     .contact-card-label {
@@ -503,10 +583,18 @@
       margin-bottom: 0.4rem;
     }
 
+    [data-theme="light"] .contact-card-label {
+      color: var(--text-muted);
+    }
+
     .contact-card-value {
       font-size: 0.95rem;
       font-weight: 600;
       color: #fff;
+    }
+
+    [data-theme="light"] .contact-card-value {
+      color: var(--text);
     }
 
     /* ── Responsive ── */
@@ -739,6 +827,11 @@
     const nav = document.getElementById('main-nav');
     const logo = document.getElementById('nav-logo');
     const navLinks = document.querySelectorAll('.nav-link');
+    let heroVisible = false, contactVisible = false;
+
+    function isDarkTheme() {
+      return document.documentElement.getAttribute('data-theme') === 'dark';
+    }
 
     function setNav(dark) {
       nav.classList.toggle('dark-nav', dark);
@@ -748,13 +841,30 @@
       navLinks.forEach(l => { l.classList.toggle('dark', dark); l.classList.toggle('light', !dark); });
     }
 
+    function updateNav() {
+      // In dark theme: hero/contact sections get dark nav, middle sections get light nav
+      // In light theme: everything uses light nav since hero/contact are also light
+      if (isDarkTheme()) {
+        setNav(heroVisible || contactVisible);
+      } else {
+        setNav(false);
+      }
+    }
+
     new IntersectionObserver(entries => {
-      setNav(entries.some(e => e.isIntersecting));
+      heroVisible = entries.some(e => e.isIntersecting);
+      updateNav();
     }, { threshold: 0.15 }).observe(hero);
 
     new IntersectionObserver(entries => {
-      if (entries[0].isIntersecting) setNav(true);
+      contactVisible = entries[0].isIntersecting;
+      updateNav();
     }, { threshold: 0.15 }).observe(contact);
+
+    // Set initial state + re-evaluate on theme change
+    updateNav();
+    const _origToggle = toggleTheme;
+    toggleTheme = function() { _origToggle(); updateNav(); };
 
   </script>
 
