@@ -2,6 +2,23 @@
    Shared Styles — used by all pages
    ══════════════════════════════════════════ */
 
+/* ── Anti-copy protection ── */
+body {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+img {
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-drag: none;
+  pointer-events: none;
+}
+
 :root {
   --bg: #F8F8FB;
   --bg-card: #FFFFFF;
@@ -282,6 +299,69 @@ footer p {
 @keyframes pulse {
   0%, 100% { opacity: 1; }
   50% { opacity: 0.4; }
+}
+
+/* ── Animated gradient text ── */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animated-gradient {
+  background: linear-gradient(270deg, #A78BFA, #6C63FF, #818CF8, #2DD4BF, #A78BFA);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShift 6s ease infinite;
+}
+
+/* ── Staggered reveal for grid children ── */
+.stagger-grid.visible > * {
+  opacity: 0;
+  transform: translateY(25px);
+  animation: fadeUp 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.stagger-grid.visible > *:nth-child(1) { animation-delay: 0.05s; }
+.stagger-grid.visible > *:nth-child(2) { animation-delay: 0.1s; }
+.stagger-grid.visible > *:nth-child(3) { animation-delay: 0.15s; }
+.stagger-grid.visible > *:nth-child(4) { animation-delay: 0.2s; }
+.stagger-grid.visible > *:nth-child(5) { animation-delay: 0.25s; }
+.stagger-grid.visible > *:nth-child(6) { animation-delay: 0.3s; }
+.stagger-grid.visible > *:nth-child(7) { animation-delay: 0.35s; }
+.stagger-grid.visible > *:nth-child(8) { animation-delay: 0.4s; }
+.stagger-grid.visible > *:nth-child(9) { animation-delay: 0.45s; }
+.stagger-grid.visible > *:nth-child(10) { animation-delay: 0.5s; }
+
+/* ── 3D tilt card ── */
+.tilt-card {
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.tilt-card .tilt-shine {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s;
+  background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(255, 255, 255, 0.12) 0%, transparent 60%);
+}
+
+.tilt-card:hover .tilt-shine {
+  opacity: 1;
+}
+
+/* ── Floating particles ── */
+.particles-canvas {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
 }
 
 .reveal {

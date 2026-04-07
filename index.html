@@ -201,10 +201,12 @@
     }
 
     .hero h1 .hl {
-      background: linear-gradient(135deg, #A78BFA, #6C63FF, #818CF8);
+      background: linear-gradient(270deg, #A78BFA, #6C63FF, #818CF8, #2DD4BF, #A78BFA);
+      background-size: 300% 300%;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
+      animation: gradientShift 6s ease infinite;
     }
 
     .hero-desc {
@@ -330,6 +332,8 @@
       transition: all 0.35s;
       cursor: pointer;
       box-shadow: var(--card-shadow);
+      position: relative;
+      overflow: hidden;
     }
 
     .project-card:hover {
@@ -449,6 +453,8 @@
       transition: all 0.35s;
       cursor: default;
       box-shadow: var(--card-shadow);
+      position: relative;
+      overflow: hidden;
     }
 
     .skill-icon-card:hover {
@@ -660,12 +666,13 @@
   </nav>
 
   <section class="hero" id="hero">
+    <canvas class="particles-canvas" id="particles-canvas"></canvas>
     <div class="hero-grid-bg"></div>
     <div class="hero-glow"></div>
     <div class="hero-content">
       <div class="hero-badge"><span class="badge-dot"></span> Available for work</div>
       <h1>I build things<br>for the <span class="hl">web and mobile apps.</span></h1>
-      <p class="hero-desc">Fullstack developer focused on crafting clean, performant digital experiences that solve real
+      <p class="hero-desc">Full-stack developer focused on crafting clean, performant digital experiences that solve real
         problems.</p>
       <div class="hero-actions">
         <a href="#projects" class="btn btn-primary">View Projects <span class="material-symbols-rounded" style="font-size:18px">arrow_downward</span></a>
@@ -712,7 +719,7 @@
   </section>
 
   <section id="projects">
-    <div class="projects-grid" id="projects-grid">
+    <div class="projects-grid stagger-grid" id="projects-grid">
       <div class="reveal" style="grid-column: 1 / -1;">
         <div class="section-label">Projects</div>
         <h2 class="section-title">Selected work</h2>
@@ -765,6 +772,9 @@
     renderContactCards();
     renderProjectCards();
     initRevealAnimations();
+    initStaggerAnimations();
+    initTiltCards();
+    initParticles();
 
     // ── Skills grid ──
     const SKILLS = [
@@ -803,12 +813,14 @@
     function renderSkills(cat) {
       const filtered = cat === 'all' ? SKILLS : SKILLS.filter(s => s.cat === cat);
       grid.innerHTML = filtered.map(s => `
-        <div class="skill-icon-card">
+        <div class="skill-icon-card tilt-card">
+          <div class="tilt-shine"></div>
           ${s.icon ? `<i class="${s.icon}"></i>` : (s.svg || '')}
           <span class="skill-name">${s.name}</span>
           ${s.badge ? `<span class="skill-badge">${s.badge}</span>` : ''}
         </div>
       `).join('');
+      initTiltCards();
     }
 
     catBtns.forEach(btn => {

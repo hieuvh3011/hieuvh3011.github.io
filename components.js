@@ -29,6 +29,43 @@ function toggleTheme() {
 // Run immediately so there's no flash
 initTheme();
 
+/* ── Anti-copy / Anti-scrape Protection ── */
+(function () {
+  // Disable right-click context menu
+  document.addEventListener('contextmenu', function (e) {
+    e.preventDefault();
+  });
+
+  // Disable keyboard shortcuts: Ctrl+C, Ctrl+U, Ctrl+S, Ctrl+Shift+I, F12
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'F12') {
+      e.preventDefault();
+      return false;
+    }
+    if (e.ctrlKey && (e.key === 'u' || e.key === 'U' || e.key === 's' || e.key === 'S')) {
+      e.preventDefault();
+      return false;
+    }
+    if (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'i' || e.key === 'J' || e.key === 'j' || e.key === 'C' || e.key === 'c')) {
+      e.preventDefault();
+      return false;
+    }
+  });
+
+  // Disable drag on all elements
+  document.addEventListener('dragstart', function (e) {
+    e.preventDefault();
+  });
+
+  // Disable copy/cut
+  document.addEventListener('copy', function (e) {
+    e.preventDefault();
+  });
+  document.addEventListener('cut', function (e) {
+    e.preventDefault();
+  });
+})();
+
 /**
  * Render the shared footer into <footer id="site-footer"></footer>
  */
@@ -114,10 +151,11 @@ function renderProjectCards() {
   PROJECTS.forEach(p => {
     const card = document.createElement('a');
     card.href = `project-detail.html?id=${p.id}`;
-    card.className = 'project-card reveal';
+    card.className = 'project-card tilt-card';
     card.style.textDecoration = 'none';
     card.style.color = 'inherit';
     card.innerHTML = `
+      <div class="tilt-shine"></div>
       <div class="project-meta">
         <span class="project-year">${p.year}</span>
         <span class="project-link"><span class="material-symbols-rounded" style="font-size:16px">open_in_new</span></span>
@@ -127,5 +165,128 @@ function renderProjectCards() {
       <div class="project-tags">${p.techstack.map(t => `<span class="tag">${t}</span>`).join('')}</div>
     `;
     grid.appendChild(card);
+  });
+}
+
+/**
+ * Init IntersectionObserver for .stagger-grid elements
+ */
+function initStaggerAnimations() {
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.stagger-grid').forEach(el => obs.observe(el));
+}
+
+/**
+ * 3D tilt effect on .tilt-card elements
+ */
+function initTiltCards() {
+  document.querySelectorAll('.tilt-card').forEach(card => {
+    card.addEventListener('mousemove', function (e) {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      const rotateX = ((y - centerY) / centerY) * -6;
+      const rotateY = ((x - centerX) / centerX) * 6;
+
+      card.style.transform = `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
+      card.style.setProperty('--mouse-x', (x / rect.width * 100) + '%');
+      card.style.setProperty('--mouse-y', (y / rect.height * 100) + '%');
+    });
+
+    card.addEventListener('mouseleave', function () {
+      card.style.transform = '';
+    });
+  });
+}
+
+/**
+ * Floating particles in hero canvas
+ */
+function initParticles() {
+  const canvas = document.getElementById('particles-canvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  let particles = [];
+  let animId;
+
+  function resize() {
+    const hero = canvas.parentElement;
+    canvas.width = hero.offsetWidth;
+    canvas.height = hero.offsetHeight;
+  }
+
+  function createParticles() {
+    particles = [];
+    const count = Math.floor(canvas.width * canvas.height / 12000);
+    for (let i = 0; i < count; i++) {
+      particles.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        r: Math.random() * 1.5 + 0.5,
+        dx: (Math.random() - 0.5) * 0.3,
+        dy: (Math.random() - 0.5) * 0.3,
+        opacity: Math.random() * 0.5 + 0.1
+      });
+    }
+  }
+
+  function getParticleColor() {
+    const isDark = document.documentElement.getAttribute('data-theme') !== 'light';
+    return isDark ? '124, 115, 255' : '108, 99, 255';
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    const color = getParticleColor();
+    particles.forEach(p => {
+      p.x += p.dx;
+      p.y += p.dy;
+      if (p.x < 0) p.x = canvas.width;
+      if (p.x > canvas.width) p.x = 0;
+      if (p.y < 0) p.y = canvas.height;
+      if (p.y > canvas.height) p.y = 0;
+
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(${color}, ${p.opacity})`;
+      ctx.fill();
+    });
+
+    // Draw connections between nearby particles
+    for (let i = 0; i < particles.length; i++) {
+      for (let j = i + 1; j < particles.length; j++) {
+        const dx = particles[i].x - particles[j].x;
+        const dy = particles[i].y - particles[j].y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < 120) {
+          ctx.beginPath();
+          ctx.moveTo(particles[i].x, particles[i].y);
+          ctx.lineTo(particles[j].x, particles[j].y);
+          ctx.strokeStyle = `rgba(${color}, ${0.06 * (1 - dist / 120)})`;
+          ctx.lineWidth = 0.5;
+          ctx.stroke();
+        }
+      }
+    }
+
+    animId = requestAnimationFrame(draw);
+  }
+
+  resize();
+  createParticles();
+  draw();
+
+  window.addEventListener('resize', () => {
+    resize();
+    createParticles();
   });
 }
