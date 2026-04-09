@@ -36,43 +36,6 @@ function toggleTheme() {
 // Run immediately so there's no flash
 initTheme();
 
-/* ── Anti-copy / Anti-scrape Protection ── */
-(function () {
-  // Disable right-click context menu
-  document.addEventListener('contextmenu', function (e) {
-    e.preventDefault();
-  });
-
-  // Disable keyboard shortcuts: Ctrl+C, Ctrl+U, Ctrl+S, Ctrl+Shift+I, F12
-  document.addEventListener('keydown', function (e) {
-    if (e.key === 'F12') {
-      e.preventDefault();
-      return false;
-    }
-    if (e.ctrlKey && (e.key === 'u' || e.key === 'U' || e.key === 's' || e.key === 'S')) {
-      e.preventDefault();
-      return false;
-    }
-    if (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'i' || e.key === 'J' || e.key === 'j' || e.key === 'C' || e.key === 'c')) {
-      e.preventDefault();
-      return false;
-    }
-  });
-
-  // Disable drag on all elements
-  document.addEventListener('dragstart', function (e) {
-    e.preventDefault();
-  });
-
-  // Disable copy/cut
-  document.addEventListener('copy', function (e) {
-    e.preventDefault();
-  });
-  document.addEventListener('cut', function (e) {
-    e.preventDefault();
-  });
-})();
-
 /**
  * Render the shared footer into <footer id="site-footer"></footer>
  */
