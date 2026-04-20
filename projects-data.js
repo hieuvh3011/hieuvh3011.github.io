@@ -109,13 +109,13 @@ const PROJECTS = [
       'Integrating physical hardware (citizen ID card reader via NFC/contact chip) with a React Native mobile application — requiring native modules for low-level device communication on both Android and iOS',
       'Implementing complex multi-step financial workflows (account creation, FATCA/AML compliance, card issuance) with strict validation rules that vary by product type, customer segment, and regulatory requirements',
       'Ensuring offline capability for tablet apps used in bank branches with unreliable network — tellers must be able to continue serving customers even during network outages',
-      'Coordinating parallel development across a 48-person team building interconnected banking workflows, where changes in one flow often had cascading effects on others'
+      'Handling sensitive customer data (ID, biometrics, financial information) with strict security requirements while maintaining a smooth UX during in-branch customer onboarding sessions'
     ],
     solutions: [
       'Developed custom React Native native modules (Kotlin/Swift) to interface with the ID card reader SDK, abstracting hardware communication behind a unified JavaScript API that handles connection lifecycle, data parsing, and error recovery',
       'Built a dynamic form engine driven by JSON schema configuration, where each banking product defines its own validation rules, field dependencies, and submission flow — enabling rapid product onboarding without code changes',
       'Implemented an offline-first architecture with local SQLite storage, request queuing, and automatic sync with conflict detection when connectivity resumes — ensuring zero data loss during network interruptions',
-      'Established a modular architecture separating shared components, workflow-specific modules, and integration layers, with clear ownership boundaries per team — reducing cross-team merge conflicts significantly'
+      'Applied end-to-end encryption for sensitive data in transit and at rest, session timeout with auto-logout, and secure local storage with platform-native keystores — protecting customer information while keeping the UX responsive'
     ],
     techstack: ['React Native', 'Spring Boot', 'JavaScript', 'Java', 'Kotlin', 'Swift'],
     links: [],
