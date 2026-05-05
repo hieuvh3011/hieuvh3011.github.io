@@ -271,6 +271,33 @@ const PROJECTS = [
     screenshots: []
   },
   {
+    id: 'healthcare-ocr',
+    platform: 'web',
+    name: 'Healthcare OCR - Health Certificate Digitization',
+    year: '2020 - 2021',
+    description: 'Internal web application that digitizes paper-based Health Check Certificates for a hospital using OCR, eliminating manual data entry and enabling seamless integration with the hospital\'s HIS/EMR systems.',
+    context: {
+      client: 'Confidential — a hospital operating at scale with high volumes of daily patient health check processing.',
+      problem: 'The hospital issued paper Health Check Certificates that couldn\'t be integrated with their Hospital Information System (HIS) or Electronic Medical Records (EMR). Medical staff had to manually re-enter all certificate data into digital systems — a slow, error-prone process that created bottlenecks in patient record management and limited the ability to search or audit historical health check data.'
+    },
+    challenges: [
+      'Processing both printed and handwritten text on health certificates with high accuracy — handwritten medical data is notoriously difficult for OCR due to inconsistent handwriting styles across medical staff',
+      'Extracting structured fields (patient name, date of birth, diagnoses, test results) from certificates that varied in format and layout across different certificate templates used by the hospital',
+      'Designing a validation workflow that lets medical staff review and correct OCR output before committing to the database — balancing automation efficiency with the accuracy requirements of medical records',
+      'Integrating with the hospital\'s existing HIS/EMR systems and internal databases without disrupting live clinical workflows, given the sensitivity of medical data and the criticality of these systems'
+    ],
+    solutions: [
+      'Implemented an OCR pipeline combining printed text recognition with handwriting recognition models, achieving 95%+ accuracy on standard certificate formats through template-based region detection and confidence scoring',
+      'Built a template engine that maps certificate layouts to structured field extraction rules — automatically identifying and parsing key data fields regardless of minor formatting variations between certificate versions',
+      'Designed a human-in-the-loop validation interface where medical staff can review extracted fields, correct OCR errors highlighted by low-confidence scores, and approve records before they sync to the database — keeping the process fast while maintaining data integrity',
+      'Built secure integration adapters for the hospital\'s HIS/EMR and internal databases, with audit logging for all data writes and rollback capability — ensuring reliable data synchronization without impacting live clinical systems'
+    ],
+    techstack: ['VueJS', 'Node.js', 'TypeScript', 'MySQL'],
+    links: [],
+    result: 'Deployed as an internal tool, achieving 95%+ OCR accuracy and eliminating the majority of manual data entry for health certificate processing. Medical staff gained a centralized, searchable digital archive of health check records, and the HIS/EMR integration enabled automated patient record updates — significantly reducing administrative workload and data entry errors.',
+    screenshots: []
+  },
+  {
     id: 'maydocsach-ecommerce',
     platform: 'web',
     name: 'MayDocSach - eCommerce Platform',

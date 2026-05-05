@@ -52,7 +52,7 @@ Beyond coding, focuses on engineering excellence: CI/CD pipelines, code quality 
 
 ---
 
-## Projects (11 total, newest → oldest)
+## Projects (12 total, newest → oldest)
 
 ### 1. NAB Business Lending — Core Banking Platform
 - **Year:** 2025 – Present
@@ -169,7 +169,19 @@ Beyond coding, focuses on engineering excellence: CI/CD pipelines, code quality 
 
 ---
 
-### 10. MayDocSach — eCommerce Platform
+### 10. Healthcare OCR — Health Certificate Digitization
+- **Year:** 2020 – 2021
+- **Platform:** Web
+- **Client:** Confidential hospital
+- **Role:** Built internal OCR tool digitizing paper Health Check Certificates
+- **Tech:** VueJS, Node.js, TypeScript, MySQL
+- **Challenges:** OCR accuracy for printed + handwritten medical text; variable certificate layouts; validation workflow for medical staff; HIS/EMR integration without disrupting live systems
+- **Solutions:** Template-based OCR pipeline with confidence scoring (95%+ accuracy); structured field extraction engine; human-in-the-loop validation UI; secure integration adapters with audit logging
+- **Result:** Eliminated majority of manual data entry for health certificate processing; centralized searchable digital archive; automated HIS/EMR sync
+
+---
+
+### 11. MayDocSach — eCommerce Platform
 - **Year:** 2020 – 2023
 - **Platform:** Web
 - **Client:** MayDocSach — Vietnamese e-commerce for Kindle e-readers and tablets
@@ -182,7 +194,7 @@ Beyond coding, focuses on engineering excellence: CI/CD pipelines, code quality 
 
 ---
 
-### 11. Ngan Luong E-Wallet Platform
+### 12. Ngan Luong E-Wallet Platform
 - **Year:** 2018 – 2020
 - **Platform:** Web + Mobile
 - **Client:** NextTech Group — major Vietnamese technology conglomerate
