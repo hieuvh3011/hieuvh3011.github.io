@@ -186,9 +186,9 @@ Beyond coding, focuses on engineering excellence: CI/CD pipelines, code quality 
 - **Platform:** Web
 - **Client:** MayDocSach — Vietnamese e-commerce for Kindle e-readers and tablets
 - **Role:** Full-stack development, tech stack selection, infrastructure setup
-- **Tech:** NestJS, ReactJS, TypeScript, Docker, AWS
+- **Tech:** NestJS, VueJS, TypeScript, Docker, AWS
 - **Challenges:** Tech stack selection for full eCommerce; complete order management with Vietnamese payment gateways and logistics; production infrastructure on AWS; SEO optimization for product pages
-- **Solutions:** NestJS + ReactJS full-stack with TypeScript; modular order pipeline with state machine; Docker + GitHub Actions CI/CD on AWS (99.9% uptime); SSR with structured data and WebP images for SEO
+- **Solutions:** NestJS + VueJS full-stack with TypeScript; modular order pipeline with state machine; Docker + GitHub Actions CI/CD on AWS (99.9% uptime); SSR with structured data and WebP images for SEO
 - **Result:** Launched as maydocsach.vn, dedicated eCommerce platform for e-readers in Vietnam
 - **Links:** [Website](https://www.maydocsach.vn/)
 

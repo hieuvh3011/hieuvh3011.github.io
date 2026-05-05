@@ -314,12 +314,12 @@ const PROJECTS = [
       'Ensuring frontend performance and SEO optimization for product pages — critical for an eCommerce site where search engine visibility directly impacts revenue'
     ],
     solutions: [
-      'Chose NestJS for backend (strong TypeScript support, modular architecture) and ReactJS for frontend — enabling rapid development with type safety across the full stack while maintaining clear separation of concerns',
+      'Chose NestJS for backend (strong TypeScript support, modular architecture) and VueJS for frontend — enabling rapid development with type safety across the full stack while maintaining clear separation of concerns',
       'Built a modular order pipeline with state machine pattern for order lifecycle management, integrating Vietnamese payment gateways and logistics APIs through adapter interfaces — enabling easy addition of new payment/shipping providers',
       'Deployed on AWS with Docker containers, automated CI/CD via GitHub Actions, and infrastructure monitoring with CloudWatch — achieving 99.9% uptime with automated rollback capabilities',
       'Implemented server-side rendering for product pages with structured data markup, optimized image loading with lazy loading and WebP conversion, and meta tag management — improving search engine indexing and page load performance'
     ],
-    techstack: ['NestJS', 'ReactJS', 'TypeScript', 'Docker', 'AWS'],
+    techstack: ['NestJS', 'VueJS', 'TypeScript', 'Docker', 'AWS'],
     links: [
       { label: 'Website', url: 'https://www.maydocsach.vn/' }
     ],
