@@ -122,10 +122,10 @@ Beyond coding, focuses on engineering excellence: CI/CD pipelines, code quality 
 - **Platform:** Web
 - **Client:** SotaICG — AI-powered Data Analytics Agency for the oil and gas industry
 - **Role:** Built cloud data platform and VueJS analytics dashboard
-- **Tech:** VueJS, Python, AWS S3, Amazon Redshift, Amazon SageMaker, Kubernetes
-- **Challenges:** Legacy system migration for operations teams; high transformation costs with ROI pressure; managing large heterogeneous oil and gas data volumes across the full ETL pipeline; building accurate predictive models for price forecasting and equipment maintenance
-- **Solutions:** S3 data lake + Redshift data warehouse for raw and analytics-ready storage; Kubernetes + EC2 Spot Instances for cost-efficient ETL; SageMaker for automated model training and evaluation; VueJS dashboard for real-time pipeline and prediction visibility
-- **Result:** Scalable AWS platform reduced operational costs, accelerated data processing, and enabled accurate AI predictions for oil/gas prices and drilling maintenance — empowering data-driven decisions in the energy sector
+- **Tech:** VueJS, TypeScript, AWS S3, Amazon Redshift, Amazon SageMaker
+- **Challenges:** Presenting high-volume oil and gas data intuitively for non-technical ops teams; integrating with multiple AWS APIs (Redshift, SageMaker, S3) with different data formats; easing adoption from legacy systems; visualizing ML prediction outputs with confidence intervals
+- **Solutions:** VueJS analytics dashboard with real-time charts and alert indicators; unified frontend data layer normalizing Redshift/SageMaker/S3 responses; progressive disclosure UX for legacy-system users; interactive time-series components for price forecasts and maintenance schedules
+- **Result:** Made SotaICG's AWS data platform accessible to operations teams — real-time visibility into oil/gas price predictions and equipment maintenance forecasts, enabling faster data-driven decisions
 
 ---
 

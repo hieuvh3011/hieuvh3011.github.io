@@ -157,26 +157,26 @@ const PROJECTS = [
     platform: 'web',
     name: 'SotaICG - Cloud-Based Material Resource Planning',
     year: '2022 - 2023',
-    description: 'Cloud-based data analytics platform for the oil and gas industry, built on AWS — featuring a scalable data lake, data warehouse, automated ETL pipelines, and AI-powered predictive models for price forecasting and equipment maintenance.',
+    description: 'VueJS analytics dashboard for an AI-powered oil and gas data platform — surfacing real-time insights from an AWS-backed data lake, data warehouse, and SageMaker predictive models to operations teams.',
     context: {
       client: 'SotaICG — an innovative Data Analytics Agency powered by AI, focused on the oil and gas industry. SotaICG leverages advanced data analytics and artificial intelligence to drive insights and optimize operations within the energy sector.',
-      problem: 'SotaICG\'s clients in the oil and gas industry were operating on legacy data management systems that couldn\'t scale to meet growing data volumes or support machine learning workflows. Manually managing raw sensor data, drilling records, and market data was costly, error-prone, and too slow for time-sensitive operational decisions. SotaICG needed a modern cloud platform to consolidate data ingestion, cleaning, warehousing, and predictive analytics into a single scalable infrastructure.'
+      problem: 'SotaICG built a sophisticated AWS data platform (S3 data lake, Redshift warehouse, SageMaker ML models) for oil and gas clients, but needed a frontend that made the outputs accessible to non-technical operations teams. Raw model predictions and pipeline metrics were only visible through backend tooling — there was no usable interface for day-to-day decision-making.'
     },
     challenges: [
-      'Migrating users away from entrenched legacy systems — operations teams were accustomed to existing workflows, making adoption of the new cloud platform a significant change management challenge',
-      'Managing the high cost of cloud transformation while justifying ROI to stakeholders — the shift to AWS infrastructure required substantial upfront investment with uncertain short-term returns',
-      'Handling large volumes of heterogeneous oil and gas data (sensor readings, drilling logs, market prices) across the full pipeline — from raw ingestion through cleaning, transformation, and ML-ready preparation',
-      'Building and maintaining accurate predictive models for oil and gas price forecasting and drilling equipment maintenance schedules, where model drift or inaccurate predictions could directly impact operational decisions'
+      'Presenting high-volume, constantly updating oil and gas data (sensor readings, price predictions, equipment health scores) in a dashboard that operations staff could read and act on at a glance',
+      'Integrating with multiple AWS backend services — Redshift query APIs, SageMaker prediction endpoints, S3 data exports — each returning different data shapes and update cadences',
+      'Designing a UI that eased adoption for users migrating from legacy systems, where any steep learning curve would undermine the entire platform investment',
+      'Visualizing ML prediction outputs (oil/gas price forecasts, drilling device maintenance schedules) in a way that clearly communicated confidence intervals and actionable thresholds to non-technical users'
     ],
     solutions: [
-      'Implemented a data lake on Amazon S3 for cost-effective raw data storage, with a data warehouse on Amazon Redshift for structured, query-optimized storage — separating raw ingestion from analytics-ready data to support both ad-hoc queries and ML pipelines',
-      'Deployed ETL workloads on AWS Managed Kubernetes with EC2 Spot Instances, running scalable data cleaning and transformation jobs at a fraction of on-demand costs — processing large datasets efficiently while keeping infrastructure costs predictable',
-      'Integrated Amazon SageMaker to automate training pipelines for predictive models, using SageMaker Processing jobs for data preparation and model evaluation — enabling automated retraining cycles for oil price prediction and drilling device maintenance forecasting',
-      'Built a VueJS-based analytics dashboard as the interface layer, giving SotaICG\'s team real-time visibility into pipeline health, model performance metrics, and prediction outputs — translating complex ML results into actionable operational insights'
+      'Built a VueJS analytics dashboard with real-time data visualization for pipeline health, ML model performance metrics, and oil/gas price prediction trends — turning raw model output into clearly readable charts and alert indicators',
+      'Designed a unified frontend data layer that normalizes responses from Redshift, SageMaker, and S3 APIs into consistent view models — decoupling the UI from backend service changes and enabling clean component reuse across different data sources',
+      'Applied progressive disclosure and familiar dashboard UX patterns to reduce cognitive load for legacy-system users — critical metrics front and center, with drill-down views for deeper analysis on demand',
+      'Built interactive time-series components for price forecasts and maintenance schedule predictions, with configurable alert thresholds that let operations teams set their own risk tolerances without requiring backend changes'
     ],
-    techstack: ['VueJS', 'Python', 'AWS S3', 'Amazon Redshift', 'Amazon SageMaker', 'Kubernetes'],
+    techstack: ['VueJS', 'TypeScript', 'AWS S3', 'Amazon Redshift', 'Amazon SageMaker'],
     links: [],
-    result: 'Delivered a scalable, cost-efficient cloud data platform that transformed SotaICG\'s data operations. The AWS-based infrastructure reduced operational costs, accelerated data processing, and enabled accurate AI-powered predictions for oil and gas prices and drilling equipment maintenance — empowering SotaICG\'s clients to make faster, data-driven decisions in the energy sector.',
+    result: 'Delivered a frontend analytics dashboard that made SotaICG\'s AWS data platform accessible to operations teams. Users gained real-time visibility into oil and gas price predictions and equipment maintenance forecasts — enabling faster, data-driven decisions without requiring direct access to backend infrastructure.',
     screenshots: []
   },
   {
