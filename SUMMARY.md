@@ -52,7 +52,7 @@ Beyond coding, focuses on engineering excellence: CI/CD pipelines, code quality 
 
 ---
 
-## Projects (12 total, newest → oldest)
+## Projects (13 total, newest → oldest)
 
 ### 1. NAB Business Lending — Core Banking Platform
 - **Year:** 2025 – Present
@@ -117,7 +117,19 @@ Beyond coding, focuses on engineering excellence: CI/CD pipelines, code quality 
 
 ---
 
-### 6. Shareable Assets — Investment Platform
+### 6. SotaICG — Cloud-Based Material Resource Planning
+- **Year:** 2022 – 2023
+- **Platform:** Web
+- **Client:** SotaICG — AI-powered Data Analytics Agency for the oil and gas industry
+- **Role:** Built cloud data platform and VueJS analytics dashboard
+- **Tech:** VueJS, Python, AWS S3, Amazon Redshift, Amazon SageMaker, Kubernetes
+- **Challenges:** Legacy system migration for operations teams; high transformation costs with ROI pressure; managing large heterogeneous oil and gas data volumes across the full ETL pipeline; building accurate predictive models for price forecasting and equipment maintenance
+- **Solutions:** S3 data lake + Redshift data warehouse for raw and analytics-ready storage; Kubernetes + EC2 Spot Instances for cost-efficient ETL; SageMaker for automated model training and evaluation; VueJS dashboard for real-time pipeline and prediction visibility
+- **Result:** Scalable AWS platform reduced operational costs, accelerated data processing, and enabled accurate AI predictions for oil/gas prices and drilling maintenance — empowering data-driven decisions in the energy sector
+
+---
+
+### 7. Shareable Assets — Investment Platform
 - **Year:** 2021 – 2023
 - **Platform:** Mobile
 - **Client:** Shareable Assets — Singapore-based fintech startup using blockchain for democratized investing
@@ -130,7 +142,7 @@ Beyond coding, focuses on engineering excellence: CI/CD pipelines, code quality 
 
 ---
 
-### 7. Probit Global — Crypto Exchange
+### 8. Probit Global — Crypto Exchange
 - **Year:** 2021 – 2022
 - **Platform:** Mobile
 - **Client:** Probit Global — South Korean crypto exchange, top 60 on CoinMarketCap, 1000+ trading pairs
@@ -143,7 +155,7 @@ Beyond coding, focuses on engineering excellence: CI/CD pipelines, code quality 
 
 ---
 
-### 8. Travala — Blockchain Travel Booking Platform
+### 9. Travala — Blockchain Travel Booking Platform
 - **Year:** 2021 – 2023
 - **Platform:** Web
 - **Client:** Travala — blockchain-based travel booking platform
@@ -156,7 +168,7 @@ Beyond coding, focuses on engineering excellence: CI/CD pipelines, code quality 
 
 ---
 
-### 9. Booking Care — Healthcare Platform
+### 10. Booking Care — Healthcare Platform
 - **Year:** 2020 – 2023
 - **Platform:** Web + Mobile
 - **Client:** Booking Care — Vietnamese healthtech startup
@@ -169,7 +181,7 @@ Beyond coding, focuses on engineering excellence: CI/CD pipelines, code quality 
 
 ---
 
-### 10. Healthcare OCR — Health Certificate Digitization
+### 11. Healthcare OCR — Health Certificate Digitization
 - **Year:** 2020 – 2021
 - **Platform:** Web
 - **Client:** Confidential hospital
@@ -181,7 +193,7 @@ Beyond coding, focuses on engineering excellence: CI/CD pipelines, code quality 
 
 ---
 
-### 11. MayDocSach — eCommerce Platform
+### 12. MayDocSach — eCommerce Platform
 - **Year:** 2020 – 2023
 - **Platform:** Web
 - **Client:** MayDocSach — Vietnamese e-commerce for Kindle e-readers and tablets
@@ -194,7 +206,7 @@ Beyond coding, focuses on engineering excellence: CI/CD pipelines, code quality 
 
 ---
 
-### 12. Ngan Luong E-Wallet Platform
+### 13. Ngan Luong E-Wallet Platform
 - **Year:** 2018 – 2020
 - **Platform:** Web + Mobile
 - **Client:** NextTech Group — major Vietnamese technology conglomerate
